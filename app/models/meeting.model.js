@@ -1,8 +1,8 @@
 module.exports = (mongoose) => {
   const schema = mongoose.Schema(
     {
-      MeetingName: String,
-      MeetingDates: [Date],
+      name: String,
+      dates: [Date],
       startHour: String,
       endHour: String,
     },
