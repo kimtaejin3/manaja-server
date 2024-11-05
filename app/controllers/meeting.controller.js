@@ -25,6 +25,7 @@ exports.create = (req, res) => {
       res.send(data);
     })
     .catch((err) => {
+      console.log(err);
       res.status(500).send({
         message: "회의를 생성하는 동안 오류가 발생했습니다",
       });
