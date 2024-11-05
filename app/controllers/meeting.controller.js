@@ -9,6 +9,7 @@ exports.create = (req, res) => {
     !req.body.endHour
   ) {
     res.status(400).send({ message: "입력되지 않은 값이 있습니다." });
+    return;
   }
 
   const meeting = new Meeting({
