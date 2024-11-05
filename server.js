@@ -11,9 +11,7 @@ app.use(cors(corsOptions));
 app.use(express.json());
 // app.use(express.urlencoded({extended:true}))
 
-app.get("/", (req, res) => {
-  res.json({ message: "manaja server start!" });
-});
+require("./app/routes/meeting.routes")(app);
 
 app.listen(port, () => {
   console.log(`manaja server listening on port ${port}`);
