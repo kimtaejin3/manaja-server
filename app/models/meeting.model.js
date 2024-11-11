@@ -2,7 +2,10 @@ module.exports = (mongoose) => {
   const schema = mongoose.Schema(
     {
       name: String,
-      dates: [Date],
+      dates: {
+        from: Date,
+        to: Date,
+      },
       startHour: String,
       endHour: String,
     },
