@@ -14,7 +14,10 @@ exports.create = (req, res) => {
 
   const meeting = new Meeting({
     name: req.body.name,
-    dates: req.body.dates,
+    dates: {
+      from: req.body.dates.from,
+      to: req.body.dates.to,
+    },
     startHour: req.body.startHour,
     endHour: req.body.endHour,
   });
