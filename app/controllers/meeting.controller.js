@@ -2,24 +2,19 @@ const db = require("../models");
 const Meeting = db.meeting;
 
 exports.create = (req, res) => {
-  if (
-    !req.body.name ||
-    !req.body.dates ||
-    !req.body.startHour ||
-    !req.body.endHour
-  ) {
+  if (!req.body.name || !req.body.dates || !req.body.time) {
+    console.log(req.body);
     res.status(400).send({ message: "입력되지 않은 값이 있습니다." });
     return;
   }
 
+  console.log("startHour:", req.body.time.start);
+
   const meeting = new Meeting({
     name: req.body.name,
-    dates: {
-      from: req.body.dates.from,
-      to: req.body.dates.to,
-    },
-    startHour: req.body.startHour,
-    endHour: req.body.endHour,
+    dates: req.body.dates,
+    startHour: req.body.time.start,
+    endHour: req.body.time.end,
   });
 
   meeting
