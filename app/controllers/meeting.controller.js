@@ -29,3 +29,20 @@ exports.create = (req, res) => {
       });
     });
 };
+
+exports.findOne = (req, res) => {
+  const id = req.params.id;
+
+  Meeting.findById(id)
+    .then((data) => {
+      if (!data) {
+        res.status(404).send({ message: "해당하는 회의가 없습니다." });
+        return;
+      }
+
+      res.send(data);
+    })
+    .catch((err) => {
+      res.status(500).send({ message: "회의를 조회 중에 오류 발생." });
+    });
+};

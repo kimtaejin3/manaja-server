@@ -4,6 +4,7 @@ module.exports = (app) => {
   const router = require("express").Router();
 
   router.post("/", meeting.create);
+  router.get("/:id", meeting.findOne);
 
   app.use("/api/meetings", router);
 };
